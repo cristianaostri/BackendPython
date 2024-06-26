@@ -2,22 +2,19 @@ import conexion_db
 
 class Usuarios:
     tabla = 'usuarios'
-    campos = ('nombre', 'email', 'contraseña', 'comentario', 'categoria', 'edad')
+    campos = ('nombre', 'email', 'password')
 
-    def __init__(self, nombre, email, contraseña, comentario, categoria, edad, id=None):
+    def __init__(self, nombre, email, password, id=None):
         self.id = id
         self.nombre = nombre
         self.email = email
-        self.contraseña = contraseña
-        self.comentario = comentario
-        self.categoria = categoria
-        self.edad = edad
+        self.password = password
         self.conexion = conexion_db.conexion()
 
     def guardar_db(self):
         cursor = self.conexion.cursor()
-        consulta = f"INSERT INTO {self.tabla} ({', '.join(self.campos)}) VALUES (%s, %s, %s, %s, %s, %s);"
-        datos = (self.nombre, self.email, self.contraseña, self.comentario, self.categoria, self.edad)
+        consulta = f"INSERT INTO {self.tabla} ({', '.join(self.campos)}) VALUES (%s, %s, %s);"
+        datos = (self.nombre, self.email, self.password)
         cursor.execute(consulta, datos)
         self.conexion.commit()
         cursor.close()
@@ -29,8 +26,8 @@ class Usuarios:
                 setattr(self, campo, valor)
         
         cursor = self.conexion.cursor()
-        consulta = f"UPDATE {self.tabla} SET nombre = %s, email = %s, contraseña = %s, comentario = %s, categoria = %s, edad = %s WHERE id = %s;"
-        datos = (self.nombre, self.email, self.contraseña, self.comentario, self.categoria, self.edad, self.id)
+        consulta = f"UPDATE {self.tabla} SET nombre = %s, email = %s, password = %s WHERE id = %s;"
+        datos = (self.nombre, self.email, self.contraseña, self.id)
         cursor.execute(consulta, datos)
         self.conexion.commit()
         cursor.close()
@@ -62,5 +59,5 @@ class Usuarios:
         datos = cursor.fetchone()
         cursor.close()
         if datos:
-            return Usuarios(datos['nombre'], datos['email'], datos['contraseña'], datos['comentario'], datos['categoria'], datos['edad'], id=datos['id'])
+            return Usuarios(datos['nombre'], datos['email'], datos['password'], id=datos['id'])
         return None

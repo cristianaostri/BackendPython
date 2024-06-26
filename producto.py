@@ -2,22 +2,20 @@ import conexion_db
 
 class Productos:
     tabla = 'productos'
-    campos = ('nombre', 'stock', 'precio_venta', 'id_usuario', 'id_categoria', 'id_marca')
+    campos = ('nombre', 'precio_venta', 'tipo', 'imagen_url')
 
-    def __init__(self, nombre, stock, precio_venta, id_usuario, id_categoria, id_marca, id=None):
+    def __init__(self, nombre, precio_venta, tipo, imagen_url, id=None):
         self.id = id
         self.nombre = nombre
-        self.stock = stock
         self.precio_venta = precio_venta
-        self.id_usuario = id_usuario
-        self.id_categoria = id_categoria
-        self.id_marca = id_marca
+        self.tipo = tipo
+        self.imagen_url = imagen_url
         self.conexion = conexion_db.conexion()
 
     def guardar_db(self):
         cursor = self.conexion.cursor()
-        consulta = f"INSERT INTO {self.tabla} ({', '.join(self.campos)}) VALUES (%s, %s, %s, %s, %s, %s);"
-        datos = (self.nombre, self.stock, self.precio_venta, self.id_usuario, self.id_categoria, self.id_marca)
+        consulta = f"INSERT INTO {self.tabla} ({', '.join(self.campos)}) VALUES (%s, %s, %s, %s);"
+        datos = (self.nombre, self.precio_venta, self.tipo, self.imagen_url)
         cursor.execute(consulta, datos)
         self.conexion.commit()
         cursor.close()
@@ -28,8 +26,8 @@ class Productos:
                 setattr(self, campo, valor)
         
         cursor = self.conexion.cursor()
-        consulta = f"UPDATE {self.tabla} SET nombre = %s, stock = %s, precio_venta = %s, id_usuario = %s, id_categoria = %s, id_marca = %s WHERE id = %s;"
-        datos = (self.nombre, self.stock, self.precio_venta, self.id_usuario, self.id_categoria, self.id_marca, self.id)
+        consulta = f"UPDATE {self.tabla} SET nombre = %s, precio_venta = %s, tipo = %s, imagen_url = %s, WHERE id = %s;"
+        datos = (self.nombre, self.precio_venta, self.tipo, self.imagen_url, self.id)
         cursor.execute(consulta, datos)
         self.conexion.commit()
         cursor.close()
@@ -61,5 +59,5 @@ class Productos:
         datos = cursor.fetchone()
         cursor.close()
         if datos:
-            return Productos(datos['nombre'], datos['stock'], datos['precio_venta'], datos['id_usuario'], datos['id_categoria'], datos['id_marca'], id=datos['id'])
+            return Productos(datos['nombre'], datos['precio_venta'], datos['tipo'], datos['imagen_url'], id=datos['id'])
         return None

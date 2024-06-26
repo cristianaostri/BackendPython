@@ -10,14 +10,13 @@ def inicio():
 
 @app.route('/api/test')
 def mostrar_usuario():
-    usuario = Usuarios.obtener_usuario(3)  # Obtener el usuario con ID 1, ajusta según tu lógica
+    usuario = Usuarios.obtener_usuario(1)  # Obtener el usuario con ID 1, ajusta según tu lógica
     if usuario:
         return jsonify({
             
             'nombre': usuario.nombre,
             'email': usuario.email,
-            'categoria': usuario.categoria,
-            'edad': usuario.edad
+            
         })
     else:
         return jsonify({'error': 'Usuario no encontrado'}), 404

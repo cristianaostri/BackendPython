@@ -1,8 +1,7 @@
-# # test1.py
-# from usuario import Usuarios
-from marca import Marca
-# # Insertar un nuevo usuario
-# nuevo_usuario = Usuarios('John Doe', 'john.doe@example.com', 'supersecurepassword', 'Excelente servicio', 'Cliente', 29)
+# test1.py
+from usuario import Usuarios
+# Insertar un nuevo usuario
+# nuevo_usuario = Usuarios('John Doe', 'john.doe@example.com', 'caco123', )
 # nuevo_usuario.guardar_db()
 
 # # Modificar un usuario existente
@@ -15,12 +14,8 @@ from marca import Marca
 # if usuario_a_eliminar:
 #     usuario_a_eliminar.eliminar()
 
-# # Obtener todos los usuarios
-# todos_los_usuarios = Usuarios.obtener_todos()
-# for usuario in todos_los_usuarios:
-#     print(usuario)
+# Obtener todos los usuarios
+todos_los_usuarios = Usuarios.obtener_todos()
+for usuario in todos_los_usuarios:
+    print(usuario)
 
-
-todos_las_marcas = Marca.obtener_todos()
-for marca in todos_las_marcas:
-    print(marca)
