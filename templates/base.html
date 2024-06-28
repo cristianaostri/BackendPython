@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfumería</title>
+    <link rel="stylesheet" href="../proyectoGrupo3/css/home/style.css">
+    <link rel="stylesheet" href="../proyectoGrupo3/css/home/btn.css">
+    <link rel="stylesheet" href="../../css/home/style.css" />
+    <link rel="stylesheet" href="../../css/home/btn.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Contenedor para el navbar -->
+    <header id="navbarContainer"></header>
+
+    <section class="contenido">
+        <div class="contenido_lectura">
+        <h2> <strong>La esencia que define tu estilo </strong>  <span>Perfumes únicos y sofisticados para dejar una impresion inolvidable</span></h2>
+        
+        <!-- Se va a implementar más tarde este boton -->
+        <!--  <button>Explora todos los productos</button> -->
+        
+        </div>
+        <img src="../../img/home/imagen_portada.png" alt="Foto de 3 imágenes de perfumes">
+        
+    </section>
+
+    <section class="mas-vendidos">
+      <h2>Descubre los más vendidos</h2>
+      <article>
+        
+        <div class="gallery">
+          <img
+            src="https://fraguru.com/mdimg/perfume/375x500.72158.jpg"
+            alt="foto de un perfume"
+          />
+          <img
+            src="https://fraguru.com/mdimg/perfume/375x500.16657.jpg"
+            alt="foto de un perfume"
+          />
+          <img
+            src="https://fraguru.com/mdimg/perfume/375x500.40031.jpg"
+            alt="foto de un perfume"
+          />
+          <img
+            src="https://fraguru.com/mdimg/perfume/375x500.55858.jpg"
+            alt="foto de un perfume"
+          />
+          <img
+            src="https://fraguru.com/mdimg/perfume/375x500.3747.jpg"
+            alt="foto de un perfume"
+          />
+          <img
+            src="https://fraguru.com/mdimg/perfume/375x500.1460.jpg"
+            alt="foto de un perfume"
+          />
+          <img
+            src="https://fraguru.com/mdimg/perfume/375x500.37735.jpg"
+            alt="foto de un perfume"
+          />
+          <img
+            src="https://fraguru.com/mdimg/perfume/375x500.39681.jpg"
+            alt="foto de un perfume"
+          />
+          <img
+            src="https://fraguru.com/mdimg/perfume/375x500.704.jpg"
+            alt="foto de un perfume"
+          />
+          <img
+            src="https://fraguru.com/mdimg/perfume/375x500.53.jpg"
+            alt="foto de un perfume"
+          />
+          <img
+            src="https://fraguru.com/mdimg/perfume/375x500.15210.jpg"
+            alt="foto de un perfume"
+          />
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h2 class="mas_productos">Más productos</h2>
+      <div class="btn-mostrar-mas">
+        <a>
+          <span class="text">Mostrar más</span>
+          <span class="line -right"></span>
+          <span class="line -top"></span>
+          <span class="line -left"></span>
+          <span class="line -bottom"></span>
+        </a>
+      </div>
+    </section>
+    <!-- Contenedor para el footer -->
+    <div id="footerContainer"></div>
+       
+    
+    <!--  script para mostrar el boton de mostrar más -->
+    <script src="../../js/java.js"></script>
+
+   
+    <script>
+        // Función para cargar el contenido del navbar
+        fetch('../../html/home/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbarContainer').innerHTML = data;
+            });
+        
+        // Función para cargar el contenido del footer
+        fetch('../../html/home/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footerContainer').innerHTML = data;
+            });
+        </script>
+    
+</body>
+
+</html>

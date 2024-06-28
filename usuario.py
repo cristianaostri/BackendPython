@@ -1,4 +1,4 @@
-import conexion_db
+import base_db.config_db as config_db
 
 class Usuarios:
     tabla = 'usuarios'
@@ -9,7 +9,7 @@ class Usuarios:
         self.nombre = nombre
         self.email = email
         self.password = password
-        self.conexion = conexion_db.conexion()
+        self.conexion = config_db.conexion()
 
     def guardar_db(self):
         cursor = self.conexion.cursor()
@@ -42,7 +42,7 @@ class Usuarios:
 
     @classmethod
     def obtener_todos(cls):
-        conexion = conexion_db.conexion()
+        conexion = config_db.conexion()
         cursor = conexion.cursor(dictionary=True)
         consulta = f"SELECT * FROM {cls.tabla};"
         cursor.execute(consulta)
@@ -52,7 +52,7 @@ class Usuarios:
 
     @classmethod
     def obtener_usuario(cls, id):
-        conexion = conexion_db.conexion()
+        conexion = config_db.conexion()
         cursor = conexion.cursor(dictionary=True)
         consulta = f"SELECT * FROM {cls.tabla} WHERE id = %s;"
         cursor.execute(consulta, (id,))

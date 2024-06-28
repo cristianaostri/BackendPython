@@ -1,4 +1,4 @@
-import conexion_db
+import base_db.config_db as config_db
 
 class Productos:
     tabla = 'productos'
@@ -10,7 +10,7 @@ class Productos:
         self.precio_venta = precio_venta
         self.tipo = tipo
         self.imagen_url = imagen_url
-        self.conexion = conexion_db.conexion()
+        self.conexion = config_db.conexion()
 
     def guardar_db(self):
         cursor = self.conexion.cursor()
@@ -42,7 +42,7 @@ class Productos:
 
     @classmethod
     def obtener_todos(cls):
-        conexion = conexion_db.conexion()
+        conexion = config_db.conexion()
         cursor = conexion.cursor(dictionary=True)
         consulta = f"SELECT * FROM {cls.tabla};"
         cursor.execute(consulta)
@@ -52,7 +52,7 @@ class Productos:
 
     @classmethod
     def obtener_producto(cls, id):
-        conexion = conexion_db.conexion()
+        conexion = config_db.conexion()
         cursor = conexion.cursor(dictionary=True)
         consulta = f"SELECT * FROM {cls.tabla} WHERE id = %s;"
         cursor.execute(consulta, (id,))
