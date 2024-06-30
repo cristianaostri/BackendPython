@@ -1,0 +1,131 @@
+:root {
+  --thick: 3px;
+  --pad: 0.7em;
+  --extra: calc(var(--pad) * 1.2);
+  --color: #f26522;
+}
+
+.btn-mostrar-mas {
+  margin: 10px;  
+  background:antiquewhite;;
+}
+
+.btn-mostrar-mas a {
+  color: black;
+  padding: var(--pad) var(--extra);
+  display: inline-block;
+  border: var(--thick) solid transparent;
+  position: relative;
+  font-size: 1.5em;
+  cursor: pointer;
+  letter-spacing: 0.07em;
+  text-decoration: none; /* Añadido para evitar el subrayado de los enlaces */
+}
+
+.btn-mostrar-mas a .text {
+  font-family: proxima-nova, monospace;
+  transform: translate3d(0, var(--pad), 0);
+  display: block;
+  transition: transform 0.4s cubic-bezier(.2, 0, 0, 1) 0.4s;
+}
+
+.btn-mostrar-mas a:after {
+  position: absolute;
+  content: '';
+  bottom: calc(-1 * var(--thick));
+  left: var(--extra);
+  right: var(--extra);
+  height: var(--thick);
+  background: var(--color);
+  transition: transform 0.8s cubic-bezier(1, 0, .37, 1) 0.2s, right 0.2s cubic-bezier(.04, .48, 0, 1) 0.6s, left 0.4s cubic-bezier(.04, .48, 0, 1) 0.6s;
+  transform-origin: left;
+}
+
+.btn-mostrar-mas .line {
+  position: absolute;
+  background: var(--color);
+}
+
+.btn-mostrar-mas .line.-right,
+.btn-mostrar-mas .line.-left {
+  width: var(--thick);
+  bottom: calc(-1 * var(--thick));
+  top: calc(-1 * var(--thick));
+  transform: scale3d(1, 0, 1);
+}
+
+.btn-mostrar-mas .line.-top,
+.btn-mostrar-mas .line.-bottom {
+  height: var(--thick);
+  left: calc(-1 * var(--thick));
+  right: calc(-1 * var(--thick));
+  transform: scale3d(0, 1, 1);
+}
+
+.btn-mostrar-mas .line.-right {
+  right: calc(-1 * var(--thick));
+  transition: transform 0.1s cubic-bezier(1, 0, .65, 1.01) 0.23s;
+  transform-origin: top;
+}
+
+.btn-mostrar-mas .line.-top {
+  top: calc(-1 * var(--thick));
+  transition: transform 0.08s linear 0.43s;
+  transform-origin: left;
+}
+
+.btn-mostrar-mas .line.-left {
+  left: calc(-1 * var(--thick));
+  transition: transform 0.08s linear 0.51s;
+  transform-origin: bottom;
+}
+
+.btn-mostrar-mas .line.-bottom {
+  bottom: calc(-1 * var(--thick));
+  transition: transform 0.3s cubic-bezier(1, 0, .65, 1.01);
+  transform-origin: right;
+}
+
+.btn-mostrar-mas a:hover,
+.btn-mostrar-mas a:active .text {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.6s cubic-bezier(.2, 0, 0, 1) 0.4s;
+}
+
+.btn-mostrar-mas a:hover:after,
+.btn-mostrar-mas a:active:after {
+  transform: scale3d(0, 1, 1);
+  right: calc(-1 * var(--thick));
+  left: calc(-1 * var(--thick));
+  transform-origin: right;
+  transition: transform 0.2s cubic-bezier(1, 0, .65, 1.01) 0.17s, right 0.2s cubic-bezier(1, 0, .65, 1.01), left 0s 0.3s;
+}
+
+.btn-mostrar-mas a:hover .line,
+.btn-mostrar-mas a:active .line {
+  transform: scale3d(1, 1, 1);
+}
+
+.btn-mostrar-mas a:hover .line.-right,
+.btn-mostrar-mas a:active .line.-right {
+  transition: transform 0.1s cubic-bezier(1, 0, .65, 1.01) 0.2s;
+  transform-origin: bottom;
+}
+
+.btn-mostrar-mas a:hover .line.-top,
+.btn-mostrar-mas a:active .line.-top {
+  transition: transform 0.08s linear 0.4s;
+  transform-origin: right;
+}
+
+.btn-mostrar-mas a:hover .line.-left,
+.btn-mostrar-mas a:active .line.-left {
+  transition: transform 0.08s linear 0.48s;
+  transform-origin: top;
+}
+
+.btn-mostrar-mas a:hover .line.-bottom,
+.btn-mostrar-mas a:active .line.-bottom {
+  transition: transform 0.5s cubic-bezier(0, .53, .29, 1) 0.56s;
+  transform-origin: left;
+}

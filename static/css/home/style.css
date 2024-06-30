@@ -1,0 +1,159 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Archivo:ital,wght@0,100..900;1,100..900&family=Bungee+Shade&family=Cagliostro&family=Dancing+Script:wght@400..700&family=Jersey+20&family=Smooch+Sans:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Archivo:ital,wght@0,100..900;1,100..900&family=Bungee+Shade&family=Cagliostro&family=Dancing+Script:wght@400..700&family=Jersey+20&family=Sacramento&family=Smooch+Sans:wght@100..900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+    background-color: antiquewhite;
+}
+
+
+.contenido { 
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    align-content: center;
+}
+.contenido .contenido_lectura{
+    margin: 30%;
+    width: 50%;
+    grid-template-columns: span 1;
+}
+.contenido span{
+    font-family: "Dancing Script", cursive;
+}
+.contenido button{
+    grid-template-columns: span 1;
+    margin-top: 10%;
+    padding: 5%;
+    background-color: chocolate;
+    border-radius: 10px;
+}
+.contenido img {
+    width: 50%;
+    margin: 20%;
+    height: 100%;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 25%  25% 25% 25%;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    
+  }
+  
+.gallery img {
+    width: 100%;
+    max-width: 350px;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: -7px -7px 20px rgba(0, 0, 0, 0.2),
+                 7px  7px 20px rgba(0, 0, 0, 0.2)
+    
+  }
+  
+
+.mas-vendidos h2 {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-family: "Sacramento", cursive;
+}
+
+.btn-mostrar-mas{
+display: flex;
+padding: 30px;
+justify-content: center;
+
+}
+
+
+@media only screen and (max-width: 752px) {
+  @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Archivo:ital,wght@0,100..900;1,100..900&family=Bungee+Shade&family=Cagliostro&family=Dancing+Script:wght@400..700&family=Jersey+20&family=Smooch+Sans:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Archivo:ital,wght@0,100..900;1,100..900&family=Bungee+Shade&family=Cagliostro&family=Dancing+Script:wght@400..700&family=Jersey+20&family=Sacramento&family=Smooch+Sans:wght@100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+
+
+.contenido {
+    display: grid;
+    grid-template-columns: 100%; /* Cambiado a una columna para dispositivos pequeños */
+    align-content: center;
+}
+
+.contenido .contenido_lectura {
+    margin: 10% auto; /* Ajuste del margen para dispositivos pequeños */
+    width: 80%; /* Ancho del contenido para dispositivos pequeños */
+    text-align: center; /* Centrar el contenido */
+}
+
+.contenido span {
+    font-family: "Dancing Script", cursive;
+}
+
+.contenido button {
+    margin-top: 10%;
+    padding: 5%;
+    background-color: chocolate;
+    border-radius: 10px;
+}
+
+.contenido img {
+    width: 100%;
+    margin: 20px auto; /* Ajuste del margen para dispositivos pequeños */
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 100%; /* Cambiado a una columna para dispositivos pequeños */
+    justify-content: center;
+    gap: 16px;
+    max-width: 100%; /* Cambiado al 100% del ancho para dispositivos pequeños */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 350px;
+    height: auto; /* Cambiado a auto para mantener la proporción */
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: -7px -7px 20px rgba(0, 0, 0, 0.2), 7px 7px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.mas-vendidos h2 {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-family: "Sacramento", cursive;
+}
+
+.btn-mostrar-mas {
+    display: flex;
+    padding: 30px;
+    justify-content: center;
+}
+
+}

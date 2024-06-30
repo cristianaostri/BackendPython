@@ -16,6 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `imagenes`
+--
+
+DROP TABLE IF EXISTS `imagenes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `imagenes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `url_img` varchar(255) DEFAULT NULL,
+  `texto_alt` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `imagenes`
+--
+
+LOCK TABLES `imagenes` WRITE;
+/*!40000 ALTER TABLE `imagenes` DISABLE KEYS */;
+INSERT INTO `imagenes` VALUES (1,'https://fraguru.com/mdimg/perfume/375x500.72158.jpg','Imagen 1'),(2,'https://fraguru.com/mdimg/perfume/375x500.16657.jpg','Imagen 2'),(3,'https://fraguru.com/mdimg/perfume/375x500.40031.jpg','Imagen 3'),(4,'https://fraguru.com/mdimg/perfume/375x500.55858.jpg','Imagen 4'),(5,'https://fraguru.com/mdimg/perfume/375x500.3747.jpg','Imagen 5'),(6,'https://fraguru.com/mdimg/perfume/375x500.1460.jpg','Imagen 6'),(7,'https://fraguru.com/mdimg/perfume/375x500.37735.jpg','Imagen 7'),(8,'https://fraguru.com/mdimg/perfume/375x500.39681.jpg','Imagen 8'),(9,'https://fraguru.com/mdimg/perfume/375x500.704.jpg','Imagen 9'),(10,'home/https://fraguru.com/mdimg/perfume/375x500.53.jpg','Imagen 10'),(11,'home/https://fraguru.com/mdimg/perfume/375x500.15210.jpg','Imagen 11');
+/*!40000 ALTER TABLE `imagenes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `productos`
 --
 
@@ -29,7 +54,7 @@ CREATE TABLE `productos` (
   `tipo` varchar(20) DEFAULT NULL,
   `imagen_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +63,7 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (1,'Perfume B',59.99,'hombre','https://fraguru.com/mdimg/perfume/375x500.16657.jpg'),(2,'Perfume A',49.99,'mujer','https://fraguru.com/mdimg/perfume/375x500.72158.jpg'),(3,'Perfume B',59.99,'hombre','https://fraguru.com/mdimg/perfume/375x500.16657.jpg'),(4,'Perfume A',49.99,'mujer','https://fraguru.com/mdimg/perfume/375x500.72158.jpg'),(5,'Perfume B',59.99,'hombre','https://fraguru.com/mdimg/perfume/375x500.16657.jpg');
+INSERT INTO `productos` VALUES (1,'Perfume B',59.99,'hombre','https://fraguru.com/mdimg/perfume/375x500.16657.jpg'),(2,'Perfume A',49.99,'mujer','https://fraguru.com/mdimg/perfume/375x500.72158.jpg'),(3,'Perfume B',59.99,'hombre','https://fraguru.com/mdimg/perfume/375x500.16657.jpg'),(4,'Perfume A',49.99,'mujer','https://fraguru.com/mdimg/perfume/375x500.72158.jpg'),(5,'Perfume B',59.99,'hombre','https://fraguru.com/mdimg/perfume/375x500.16657.jpg'),(6,'Perfume A',49.99,'mujer','https://fraguru.com/mdimg/perfume/375x500.72158.jpg'),(7,'Perfume B',59.99,'hombre','https://fraguru.com/mdimg/perfume/375x500.16657.jpg');
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +80,7 @@ CREATE TABLE `usuarios` (
   `email` varchar(255) NOT NULL,
   `password` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +89,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Juan Perez','juan.perez@example.com','password1'),(2,'Ana Gomez','ana.gomez@example.com','password2'),(3,'Juan Perez','juan.perez@example.com','password1'),(4,'Ana Gomez','ana.gomez@example.com','password2');
+INSERT INTO `usuarios` VALUES (1,'Juan Perez','juan.perez@example.com','password1'),(2,'Ana Gomez','ana.gomez@example.com','password2'),(3,'Juan Perez','juan.perez@example.com','password1'),(4,'Ana Gomez','ana.gomez@example.com','password2'),(5,'John Doe','john.doe@example.com','caco123');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -77,4 +102,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-26 17:45:57
+-- Dump completed on 2024-06-29 17:52:34

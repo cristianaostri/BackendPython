@@ -1,0 +1,39 @@
+<!-- inicio.html -->
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Perfumería{% endblock %}
+
+{% block content %}
+<section class="contenido">
+    <div class="contenido_lectura">
+        <h2><strong>La esencia que define tu estilo</strong><span>Perfumes únicos y sofisticados para dejar una impresión inolvidable</span></h2>
+        <!-- Se va a implementar más tarde este botón -->
+        <!-- <button>Explora todos los productos</button> -->
+    </div>
+    <img src="{{ url_for('static', filename='img/home/imagen_portada.png') }}" alt="Foto de 3 imágenes de perfumes">
+</section>
+
+<section class="mas-vendidos">
+    <h2>Descubre los más vendidos</h2>
+    <article>
+        <div class="gallery">
+          {% for imagen in imagenes %}
+          <img src="{{ imagen.url_img }}" alt="{{ imagen.texto_alt }}">
+          {% endfor %}
+        </div>
+    </article>
+</section>
+
+<section>
+    <h2 class="mas_productos">Más productos</h2>
+    <div class="btn-mostrar-mas">
+        <a>
+            <span class="text">Mostrar más</span>
+            <span class="line -right"></span>
+            <span class="line -top"></span>
+            <span class="line -left"></span>
+            <span class="line -bottom"></span>
+        </a>
+    </div>
+</section>
+{% endblock %}

@@ -64,6 +64,27 @@ class Tabla:
             
         return 'No se pudo eliminar el registro.'
     
+    def modificar(cls, registro):
+        update_q =f"UPDATE {cls.tabla} "
+        set_q = "SET"
+        
+        id = registro.pop('id')
+        id = int(id) if type(id) != int else id
+        # id = typeof(id) === Number ? id : Numer(id)
+        for c in list(registro.keys()):
+            set_q += f' {c} = %s, '
+        
+        set_q = set_q[0:-1]
+        where_q = f" WHERE id = %s;"
+        consulta = update_q + set_q + where_q
+        nvos_datos = *list(registro.values()), id
+        rta_db = cls.__conectar(consulta, nvos_datos)
+        
+        if rta_db:
+            return "Modificacion exitosa"
+        return "No se pudo modificar el registro"
+        
+        
     # *** Método común en CRUD (encapsulado) ***
     @classmethod
     def __conectar(cls, consulta, datos=None):
