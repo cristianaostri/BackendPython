@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import redirect, render_template, request, url_for
 import requests
 
 from main import app
@@ -24,9 +24,27 @@ def inicio():
         # Manejar errores de conexión
         print(f"Error al hacer la solicitud a la API: {e}")
         return render_template('inicio.html', imagenes=[])
-@app.route('/productos')
-def productos():
-    return render_template('productos.html') 
+    
+# @app.route('/productos')
+# def productos():
+#     return render_template('productos.html') 
+
+@app.route('/perfumeria/registro', methods=['GET', 'POST'])
+def cargando_datos():
+    if request.method == 'POST':
+        nombre = request.form['first-name']
+        email = request.form['email']
+        contraseña = request.form['new-password']
+
+        # Guardar el usuario en la base de datos
+        nuevo_usuario = Usuarios(nombre=nombre, email=email, password=contraseña)
+        nuevo_usuario.guardar_db()
+
+        # Redirigir a la página de inicio después del registro exitoso
+        return redirect(url_for('inicio'))  
+    else:
+        return render_template('/formulario/formulario.html')
+
 
 # @app.route('/sobre_la_tienda')
 # def sobre_la_tienda():

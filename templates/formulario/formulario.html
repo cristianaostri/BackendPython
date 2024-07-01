@@ -1,0 +1,29 @@
+<!-- registro.html -->
+
+{% extends './formulario/base_formulario.html' %}
+
+{% block title %}Formulario de Registro - Perfumería{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Formulario de Registro</h1>
+    <p>Por favor, completa este formulario con la información requerida</p>
+    <form id="registrationForm">
+        
+        <fieldset action="{{ url_for('cargando_datos') }}" method="POST">
+            <label for="first-name">Ingresa tu nombre y apellido:</label>
+            <input id="first-name" name="first-name" type="text" required />
+            <!-- <label for="last-name">Ingresa tu apellido:</label>
+            <input id="last-name" name="last-name" type="text" required /> -->
+            <label for="email">Ingresa tu correo electrónico:</label>
+            <input id="email" name="email" type="email" required />
+            <label for="new-password">Crea una nueva contraseña:</label>
+            <input id="new-password" name="new-password" type="password" pattern="[a-z0-5]{8,}" required />
+        </fieldset>
+        
+        <input type="submit" value="Enviar" />
+    </form>
+    <div id="error-message" class="error-message"></div>
+</div>
+
+{% endblock %}
