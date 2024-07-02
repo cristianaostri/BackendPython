@@ -1,0 +1,121 @@
+/* formulario.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Tahoma, sans-serif;
+  background: url(../../img/home/imagen-fondo.avif);
+  background-size: cover;
+  background-color: #1b1b32;
+  color: rgb(46, 121, 185);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+}
+
+h1, p {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+form {
+  width: 100%;
+}
+
+fieldset {
+  border: none;
+  padding: 1rem 0;
+  border-bottom: 3px solid #3b3b4f;
+}
+
+fieldset:last-of-type {
+  border-bottom: none;
+}
+
+legend {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 2px solid #3b3b4f;
+  border-radius: 5px;
+  background-color: #1b1b32;
+  color: #dfdfe2;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #3b3b4f;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #57576b;
+}
+
+input[type="file"] {
+  padding: 5px;
+}
+
+a {
+  color: #dfdfe2;
+}
+
+.error-message {
+  color: red;
+  display: none;
+  margin-top: 5px;
+}
+
+@media (max-width: 420px) {
+  body {
+      font-size: 0.9rem;
+  }
+
+  .container {
+      padding: 15px;
+  }
+
+  input,
+  textarea,
+  select {
+      font-size: 0.8rem;
+  }
+
+  input[type="submit"] {
+      padding: 8px;
+      font-size: 0.9rem;
+  }
+}

@@ -9,7 +9,7 @@ class Usuarios:
         self.nombre = nombre
         self.email = email
         self.password = password
-        self.conexion = config_db.conexion()
+        self.conexion = config_db.conexion
 
     def guardar_db(self):
         cursor = self.conexion.cursor()
@@ -42,17 +42,22 @@ class Usuarios:
 
     @classmethod
     def obtener_todos(cls):
-        conexion = config_db.conexion()
+        conexion = config_db.conexion
         cursor = conexion.cursor(dictionary=True)
         consulta = f"SELECT * FROM {cls.tabla};"
         cursor.execute(consulta)
         datos = cursor.fetchall()
         cursor.close()
-        return datos
+        
+        if isinstance(datos, list) and datos and isinstance(datos[0], dict):
+            return [cls(usuario['nombre'], usuario['email'], usuario['password'], id=usuario['id']) for usuario in datos]
+        else:
+            print("Los datos obtenidos no son una lista de diccionarios.")
+            return []
 
     @classmethod
     def obtener_usuario(cls, id):
-        conexion = config_db.conexion()
+        conexion = config_db.conexion
         cursor = conexion.cursor(dictionary=True)
         consulta = f"SELECT * FROM {cls.tabla} WHERE id = %s;"
         cursor.execute(consulta, (id,))
@@ -61,3 +66,6 @@ class Usuarios:
         if datos:
             return Usuarios(datos['nombre'], datos['email'], datos['password'], id=datos['id'])
         return None
+
+
+    

@@ -46,7 +46,11 @@ class Imagenes:
         cursor.execute(consulta)
         datos = cursor.fetchall()
         cursor.close()
-        return datos
+        if isinstance(datos, list) and datos and isinstance(datos[0], dict):
+            return [cls(imagen['url_img'], imagen['texto_alt'],id=imagen['id']) for imagen in datos]
+        else:
+            print("Los datos obtenidos no son una lista de diccionarios.")
+            return []
 
     @classmethod
     def obtener_imagenes(cls, id):

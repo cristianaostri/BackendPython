@@ -1,5 +1,6 @@
 # Clases que corresponden a entidades en la BBDD
 from base_db.dml import Tabla
+from base_db import config_db
 from base_db.config_db import conexion as con
 from auxiliares.cifrado import encriptar
 

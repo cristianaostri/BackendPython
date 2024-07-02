@@ -42,17 +42,21 @@ class Productos:
 
     @classmethod
     def obtener_todos(cls):
-        conexion = config_db.conexion()
+        conexion = config_db.conexion
         cursor = conexion.cursor(dictionary=True)
         consulta = f"SELECT * FROM {cls.tabla};"
         cursor.execute(consulta)
         datos = cursor.fetchall()
         cursor.close()
-        return datos
+        if isinstance(datos, list) and datos and isinstance(datos[0], dict):
+            return [cls(producto['nombre'], producto['precio_venta'], producto['tipo'], producto['imagen_url'], id=producto['id']) for producto in datos]
+        else:
+            print("Los datos obtenidos no son una lista de diccionarios.")
+            return []
 
     @classmethod
     def obtener_producto(cls, id):
-        conexion = config_db.conexion()
+        conexion = config_db.conexion
         cursor = conexion.cursor(dictionary=True)
         consulta = f"SELECT * FROM {cls.tabla} WHERE id = %s;"
         cursor.execute(consulta, (id,))
