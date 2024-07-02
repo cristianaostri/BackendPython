@@ -17,22 +17,22 @@
   </div>
 
   <div class="navbar-list">
-    <a href="../../index.html" class="inicio">Inicio</a>
-    <a href="../../html/productos/productos.html" class="productos"
+    <a  href="{{ url_for('inicio') }}" class="inicio">Inicio</a>
+    <a href="{{ url_for('ventas') }}" class="productos"
       >Productos</a
     >
     <a
-      href="../../html/sobreLaTienda/sobreLaTienda.html"
+     href="{{ url_for('tienda') }}"
       class="sobre-la-tienda"
       >Sobre la tienda</a
     >
-    <a href="../../html/contacto/Contacto.html" class="contacto"
+    <a href="{{ url_for('contacto') }}" class="contacto"
       >Contacto</a
     >
-    <a href="../../html/inicioSesion/signin.html" class="sign-in"
+    <a href="{{ url_for('login') }}" class="sign-in"
       >Sign In</a
     >
-    <a href="../../html/formulario/formulario.html" class="sign-up"
+    <a href="{{ url_for('cargando_datos') }}"class="sign-up"
       >Sign Up</a
     >
     <!-- <button href="../html/signin.html" class="btn1">Sign In</button>

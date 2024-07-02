@@ -1,0 +1,158 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+    background-color: antiquewhite;}
+
+h1 {
+    color: #000;
+}
+
+/* Estilos para la sección de productos */
+#seccion-producto {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#busc-box {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 80%; 
+    font-size: 16px;
+}
+
+/* Estilos para el filtro por tipo */
+.filter-box-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #filter-select {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #3498db;
+    border-radius: 25px;
+    background-color: #ecf0f1;
+    color: #3498db;
+    appearance: none; /* Elimina el estilo nativo del select en algunos navegadores */
+    -webkit-appearance: none; /* Para navegadores basados en WebKit */
+    -moz-appearance: none; /* Para navegadores basados en Gecko */
+    cursor: pointer;
+    transition: border-color 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  #filter-select:hover, #filter-select:focus {
+    border-color: #2980b9;
+    color: #2980b9;
+  }
+  
+  /* Estilos para las opciones del filtro */
+  #filter-select option {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #filter-select option:hover {
+    background-color: #f2f2f2;
+  }
+  
+/* Contenedor para los productos */
+.producto-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Estilos individuales para cada producto */
+.producto {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 200px; 
+    margin: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imágenes de los productos */
+.producto img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Título del producto */
+.titulo-producto {
+    color: #000;
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+/* Precio del producto */
+.producto-precio {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Estilos para el footer */
+footer .footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .redes-sociales ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer .redes-sociales li {
+    display: inline;
+    margin-right: 10px;
+}
+
+footer .redes-sociales a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+footer .redes-sociales a:hover {
+    text-decoration: underline;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .producto-container {
+        flex-direction: column;
+    }
+    
+    .producto {
+        width: 80%; /* Los productos toman más ancho en pantallas pequeñas */
+    }
+    
+    #busc-box {
+        width: 90%; /* El buscador toma más ancho en pantallas pequeñas */
+    }
+}
+
+/* Media queries para pantallas aún más pequeñas */
+@media (max-width: 480px) {
+    .producto {
+        width: 90%; /* Los productos toman casi todo el ancho en pantallas muy pequeñas */
+    }
+    
+    #busc-box {
+        width: 95%; /* El buscador toma casi todo el ancho en pantallas muy pequeñas */
+    }
+}

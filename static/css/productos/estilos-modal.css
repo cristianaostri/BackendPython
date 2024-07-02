@@ -1,0 +1,82 @@
+/* Estilos para el modal */
+.modal {
+    display: none; /* Ocultar el modal por defecto */
+    position: fixed; /* Fijar la posición respecto a la ventana */
+    z-index: 1000; /* Asegurar que esté encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); /* Color de fondo con transparencia */
+}
+
+.modal-contenido {
+    background-color: #fefefe;
+    margin: 50px auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: auto; /* Hacer que el ancho sea automático */
+    max-width: 90%; /* Un máximo ancho del 90% del ancho de la ventana */
+    max-height: 80vh; /* Un máximo altura del 80% de la altura de la ventana */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto; 
+}
+
+.cerrar {
+    color: #aaa;
+    position: absolute;
+    right: 10px; /* Posición a la derecha del modal */
+    top: 10px; /* Posición en la parte superior del modal */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal img {
+    max-width: 90%; /* Hacer que las imágenes sean más pequeñas */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .modal-contenido {
+        max-width: 95%; /* Ajustar el ancho máximo para pantallas pequeñas */
+        max-height: 90vh; /* Ajustar la altura máxima para pantallas pequeñas */
+        padding: 10px; /* Reducir el padding */
+    }
+
+    .cerrar {
+        font-size: 24px; /* Reducir el tamaño de la "x" de cerrar */
+    }
+
+    .modal img {
+        max-width: 80%; /* Ajustar el tamaño de las imágenes en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-contenido {
+        max-width: 100%; /* Ancho completo para pantallas muy pequeñas */
+        max-height: 95vh; /* Ajustar la altura máxima para pantallas muy pequeñas */
+        padding: 5px; /* Reducir aún más el padding */
+    }
+
+    .cerrar {
+        font-size: 20px; /* Reducir aún más el tamaño de la "x" de cerrar */
+    }
+
+    .modal img {
+        max-width: 70%; /* Ajustar el tamaño de las imágenes en pantallas muy pequeñas */
+    }
+}

@@ -1,0 +1,78 @@
+<!-- registro.html -->
+
+{% extends './sobre_tienda/base_tienda.html' %} 
+
+{% block title %}Formulario de Registro - Perfumería{% endblock %}
+
+{% block content %}
+<main>
+    <section>
+      <h1 class="tituloPrincipal">Apasionados por la alquimia</h1>
+      <div class="textoP">
+        <p>
+          La Alquimia es el arte de la transformación y tiene una profunda
+          capacidad para cambiar nuestra vida. En esta nueva Píldora de
+          Sabiduría Femenina para la vida cotidiana hablamos de los principios
+          básicos de la Alquimia, sus orígenes, sus símbolos principales y
+          cómo podemos aplicarla en nuestro día a día.
+        </p>
+        <p>
+          Sin embargo, en una segunda aproximación a la alquimia nos podemos
+          dar cuenta que esta iniciación a los procesos de laboratorio ocultan
+          una filosofía más profunda, que llevan al autoconocimiento, la
+          evolución espiritual y la iluminación personal.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="subTitulo">Atención en tienda</h2>
+      <div class="imagenTienda">
+        <div class="Img-Item">
+            <img src="{{ url_for('static', filename='img/sobre_tienda/imagen_tienda.png') }}" alt="foto de la atención en tienda" class="ImgAlinear">
+
+            <div class="imgdetalle">
+                <p class="imgtex">Atención personalizada</p>
+                <p class="imgtex">Satisfacción garantizada</p>
+            </div>
+        </div>
+
+        <div class="Img-Item">
+            <img src="{{ url_for('static', filename='img/sobre_tienda/imagen_tienda_ordenada.jpg') }}" alt="foto de la atención en tienda" class="imgdetalle" class="ImgAlinear">
+            <div class="imgdetalle">
+            <p class="imgtex">Gran variedad</p>
+            <p class="imgtex">Totalmente natural</p>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="subTitulo">
+        Sin pruebas con animales, sin cosas desagradables.
+      </h2>
+      <div class="textoP">
+        <p>
+          Un perfume cruelty-free es aquel que no ha sido probado en animales
+          en ninguna etapa de su producción. Esto significa que tanto el
+          producto en sí como sus ingredientes y fórmulas no han sido
+          sometidos a pruebas en animales en ningún momento.
+        </p>
+        <p>
+          Elegir perfumes cruelty-free es una elección sencilla y ética. Al
+          hacerlo, estás apoyando a aquellas marcas que toman decisiones
+          éticas en cuanto a la experimentación animal y el bienestar animal.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="subTitulo">Esperamos tu visita!</h2>
+      <div class="ubicacion">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d13379.207453273877!2d-68.79899383650925!3d-33.03535014999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1ses-419!2sar!4v1715685581346!5m2!1ses-419!2sar"
+        ></iframe>
+      </div>
+    </section>
+  </main>
+{% endblock %}

@@ -1,0 +1,89 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+    background-color: antiquewhite;}
+
+/* Estilos para contenido1 y contenido2 */
+.contenedor-sections {
+    display: flex; /* Utilizar flexbox para igualar la altura de los sections */
+    flex-wrap: wrap; /* Permitir que las secciones se envuelvan en pantallas pequeñas */
+    gap: 20px; /* Espacio entre las secciones */
+}
+
+.contenido1, .contenido2 {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(50% - 20px); /* Ajuste del ancho con margen entre ellos */
+    margin: 10px;
+}
+
+/* Estilos para galería de imágenes */
+.gallery {
+    display: flex;
+    justify-content: center; /* Centrar las imágenes horizontalmente */
+    gap: 16px; /* Espacio entre las imágenes */
+    max-width: 100%; /* Ajustar al ancho del navegador */
+    overflow-x: auto; /* Agregar desplazamiento horizontal si es necesario */
+    padding: 20px 0; /* Ajuste de padding */
+}
+
+.gallery img {
+    max-width: 460px; /* Ajustar el ancho máximo de las imágenes */
+    height: auto; /* Mantener la proporción */
+    border-radius: 8px; /* Puntas redondas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+    flex-shrink: 0; /* Evitar que las imágenes se reduzcan más de lo especificado */
+}
+@media (min-width: 992px) {
+    .contenedor-sections {
+        flex-direction: row;
+    }
+
+    .contenido1, .contenido2 {
+        flex: 1 1 calc(50% - 20px); 
+    }
+}
+
+/* Estilos específicos para tablets (entre 768px y 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .contenedor-sections {
+        flex-direction: column;
+    }
+
+    .contenido1, .contenido2 {
+        flex: 1 1 100%; 
+    }
+
+    .gallery {
+        flex-direction: column;
+    }
+
+    .gallery img {
+        max-width: 100%; 
+    }
+}
+
+/* Estilos específicos para smartphones (menos de 768px) */
+@media (max-width: 767px) {
+    .contenedor-sections {
+        flex-direction: column;
+    }
+
+    .contenido1, .contenido2 {
+        flex: 1 1 100%; 
+    }
+
+    .gallery {
+        flex-direction: column;
+    }
+
+    .gallery img {
+        max-width: 100%; 
+    }
+}

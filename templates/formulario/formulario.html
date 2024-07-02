@@ -8,11 +8,11 @@
 <div class="container">
     <h1>Formulario de Registro</h1>
     <p>Por favor, completa este formulario con la información requerida</p>
-    <form id="registrationForm">
+    <form id="registrationForm" action="{{ url_for('cargando_datos') }}" method="POST">
         
-        <fieldset action="{{ url_for('cargando_datos') }}" method="POST">
+        <fieldset>
             <label for="first-name">Ingresa tu nombre y apellido:</label>
-            <input id="first-name" name="first-name" type="text" required />
+            <input id="first-name" name="nombre" type="text" required />
             <!-- <label for="last-name">Ingresa tu apellido:</label>
             <input id="last-name" name="last-name" type="text" required /> -->
             <label for="email">Ingresa tu correo electrónico:</label>

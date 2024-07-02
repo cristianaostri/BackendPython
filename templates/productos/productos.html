@@ -1,0 +1,84 @@
+<!-- inicio.html -->
+{% extends './productos/base_productos.html' %}
+
+{% block title %}Inicio - Perfumería{% endblock %}
+
+{% block content %}
+<main>
+    <!-- sección de productos buscador -->
+    <section id="seccion-producto">
+        <div class="search-box-container">
+            <input type="text" id="busc-box" placeholder="Buscar productos..." />
+            <button id="search-button">
+                <i class="fas fa-search"></i> Buscar
+            </button>
+        </div>
+
+        <!-- Menú desplegable para filtrar por tipo -->
+        <div class="filter-box-container">
+            <select id="filter-select">
+                <option value="todos">Todos</option>
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+                <option value="hogar">Hogar</option>
+            </select>
+        </div>
+
+        <div class="producto-container">
+            <!-- Producto 1 -->
+            <div class="producto" data-name="Ambientadores para Salón" data-descripcion-producto="Perfume Ambientadores para Salón.." data-tipo="hogar">
+                <img src="../../img/producto/Ambientadores-para-Salón.jpg" alt="Ambientadores para Salón" />
+                <h3 class="titulo-producto">Ambientadores para Salón</h3>
+                <p class="producto-precio">399,00 ARS</p>
+            </div>
+            <!-- Producto 2 -->
+            <div class="producto" data-name="Aromatizante en Aerosol Saphirus - Bebe" data-descripcion-producto="Aromatizante en Aerosol Saphirus - Bebe" data-tipo="hogar">
+                <img src="../../img/producto/Aromatizante-en-Aerosol-Saphirus-Bebe.jpg" alt="Aromatizante en Aerosol Saphirus - Bebe" />
+                <h3 class="titulo-producto">Aromatizante en Aerosol Saphirus - Bebe</h3>
+                <p class="producto-precio">399,00 ARS</p>
+            </div>
+            <!-- Producto 3 -->
+            <div class="producto" data-name="Home Spray Clean Cotton" data-descripcion-producto="Home Spray Clean Cotton" data-tipo="hogar">
+                <img src="../../img/producto/Home-Spray-Clean-Cotton.jpg" alt="Home Spray Clean Cotton" />
+                <h3 class="titulo-producto">Home Spray Clean Cotton</h3>
+                <p class="producto-precio">399,00 ARS</p>
+            </div>
+            <!-- Producto 4 -->
+            <div class="producto" data-name="Pack Colección Pop Bubble Gum" data-descripcion-producto="Pack Colección Pop Bubble Gum" data-tipo="mujer">
+                <img src="../../img/producto/Pack-Colección-Pop-Bubble-Gum.jpg" alt="Pack Colección Pop Bubble Gum" />
+                <h3 class="titulo-producto">Pack Colección Pop Bubble Gum</h3>
+                <p class="producto-precio">399,00 ARS</p>
+            </div>
+            <!-- Producto 5 -->
+            <div class="producto" data-name="Pack Regalo Pop Bubble Gum" data-descripcion-producto="Pack Regalo Pop Bubble Gum" data-tipo="mujer">
+                <img src="../../img/producto/Pack-Regalo-Pop-Bubble-Gum.jpg" alt="Pack Regalo Pop Bubble Gum" />
+                <h3 class="titulo-producto">Pack Regalo Pop Bubble Gum</h3>
+                <p class="producto-precio">399,00 ARS</p>
+            </div>
+            <!-- Producto 6 -->
+            <div class="producto" data-name="Perfume Hogar y Telas Caramel" data-descripcion-producto="Perfume Hogar y Telas Caramel" data-tipo="hombre">
+                <img src="../../img/producto/perfume-hogar-y-telas-caramel.jpg" alt="Perfume Hogar y Telas Caramel" />
+                <h3 class="titulo-producto">Perfume Hogar y Telas Caramel</h3>
+                <p class="producto-precio">399,00 ARS</p>
+            </div>
+            <!-- Producto 7 -->
+            <div class="producto" data-name="Velentino Perfume" data-descripcion-producto="Velentino Perfume" data-tipo="hombre">
+                <img src="../../img/producto/Velentino-Perfume.jpg" alt="Velentino Perfume" />
+                <h3 class="titulo-producto">Velentino Perfume</h3>
+                <p class="producto-precio">399,00 ARS</p>
+            </div>
+        </div>
+    </section>
+</main>
+<div id="modal" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+        <img id="modal-img" src="../../img/producto/default.jpg" alt="Producto" />
+        <h3 id="modal-titulo">Nombre del Producto</h3>
+        <p id="modal-description">Descripción</p>
+        <p id="modal-precio">Precio</p>
+        <input type="number" id="modal-cantidad" min="1" value="1" />
+        <button id="modal-agregar-carrito">Agregar al Carrito</button>
+    </div>
+</div>
+{% endblock %}

@@ -24,7 +24,6 @@ def inicio():
         # Manejar errores de conexión
         print(f"Error al hacer la solicitud a la API: {e}")
         return render_template('inicio.html', imagenes=[])
-    
 # @app.route('/productos')
 # def productos():
 #     return render_template('productos.html') 
@@ -37,13 +36,46 @@ def cargando_datos():
         contraseña = request.form['new-password']
 
         # Guardar el usuario en la base de datos
-        nuevo_usuario = Usuarios(nombre=nombre, email=email, password=contraseña)
+        nuevo_usuario = Usuarios(nombre, email, contraseña)
+        print(nuevo_usuario)
         nuevo_usuario.guardar_db()
 
         # Redirigir a la página de inicio después del registro exitoso
-        return redirect(url_for('inicio'))  
+        return redirect(url_for(inicio))  
     else:
         return render_template('/formulario/formulario.html')
+
+@app.route('/perfumeria/contacto')
+def tienda():
+    return render_template('/contacto/contacto.html') 
+
+
+@app.route('/perfumeria/infotienda')
+def contacto():
+    return render_template('/sobre_tienda/tienda.html') 
+
+@app.route('/perfumeria/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        usuario = Usuarios(username, password)
+        usuario
+        if usuario:
+            
+            return redirect(url_for(inicio))  # Redirigir a la página de inicio
+        else:
+            # Autenticación fallida
+            error = 'Credenciales inválidas. Por favor, inténtalo de nuevo.'
+            return render_template('/inicio_sesion/sesion.html', error=error)
+    else:
+        return render_template('/inicio_sesion/sesion.html')
+
+
+@app.route('/perfumeria/productos', methods=['GET', 'POST'])
+def ventas():
+    return render_template('/productos/productos.html') 
 
 
 # @app.route('/sobre_la_tienda')

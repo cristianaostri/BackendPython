@@ -1,8 +1,9 @@
 # test1.py
 from usuario import Usuarios
 # Insertar un nuevo usuario
-# nuevo_usuario = Usuarios('John Doe', 'john.doe@example.com', 'remolacha', )
-# nuevo_usuario.guardar_db()
+nuevo_usuario = Usuarios('John Doe', 'john.doe@example.com', 'remolacha', )
+print(nuevo_usuario)
+nuevo_usuario.guardar_db()
 # print(nuevo_usuario)
 # # Modificar un usuario existente
 # usuario_existente = Usuarios.obtener_usuario(1)  # Obtener el usuario con id 1

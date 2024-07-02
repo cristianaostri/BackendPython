@@ -9,7 +9,7 @@ class Usuarios:
         self.nombre = nombre
         self.email = email
         self.password = password
-        self.conexion = config_db.conexion
+        self.conexion = config_db.conexion()
 
     def guardar_db(self):
         cursor = self.conexion.cursor()
@@ -68,4 +68,12 @@ class Usuarios:
         return None
 
 
-    
+    @classmethod
+    def autenticar(cls,username, password):
+        conexion = config_db.conexion
+        cursor = conexion.cursor(dictionary=True)
+        consulta = "SELECT * FROM {cls.tabla} WHERE username = %s AND password = %s"
+        cursor.execute(consulta, (username, password))
+        usuario = cursor.fetchone()
+        cursor.close()
+        return usuario

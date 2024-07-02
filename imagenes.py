@@ -40,7 +40,7 @@ class Imagenes:
 
     @classmethod
     def obtener_todos(cls):
-        conexion = config_db.conexion()
+        conexion = config_db.conexion
         cursor = conexion.cursor(dictionary=True)
         consulta = f"SELECT * FROM {cls.tabla};"
         cursor.execute(consulta)
@@ -54,7 +54,7 @@ class Imagenes:
 
     @classmethod
     def obtener_imagenes(cls, id):
-        conexion = config_db.conexion()
+        conexion = config_db.conexion
         cursor = conexion.cursor(dictionary=True)
         consulta = f"SELECT * FROM {cls.tabla} WHERE id = %s;"
         cursor.execute(consulta, (id,))
