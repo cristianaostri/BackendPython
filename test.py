@@ -21,3 +21,7 @@ nuevo_usuario.guardar_db()
 todos_los_usuarios = Usuarios.obtener_todos()  # Llamada al método con paréntesis
 for usuario in todos_los_usuarios:
     print(usuario.__dict__)
+
+todos_los_usuarios = Usuarios.obtener_todos()  # Llamada al método con paréntesis
+for usuario in todos_los_usuarios:
+    print(usuario.__dict__)

@@ -1,6 +1,6 @@
 import base_db.config_db as config_db
 
-class Usuarios:
+class Usuarioss:
     tabla = 'usuarios'
     campos = ('nombre', 'email', 'password')
 
@@ -26,12 +26,12 @@ class Usuarios:
                 setattr(self, campo, valor)
         
         cursor = self.conexion.cursor()
-        consulta = f"UPDATE {self.tabla} SET nombre = %s, email = %s, password = %s WHERE id = %s;"
-        datos = (self.nombre, self.email, self.contraseña, self.id)
+        consulta = f"UPDATE {self.tabla} SET nombre = %s, password = %s WHERE id = %s;"
+        datos = (self.nombre,  self.password, self.id)
         cursor.execute(consulta, datos)
         self.conexion.commit()
         cursor.close()
-
+    
     def eliminar(self):
         cursor = self.conexion.cursor()
         consulta = f"DELETE FROM {self.tabla} WHERE id = %s;"
@@ -64,16 +64,18 @@ class Usuarios:
         datos = cursor.fetchone()
         cursor.close()
         if datos:
-            return Usuarios(datos['nombre'], datos['email'], datos['password'], id=datos['id'])
+            return Usuarioss(datos['nombre'], datos['email'], datos['password'], id=datos['id'])
         return None
 
 
     @classmethod
-    def autenticar(cls,nombre, password):
+    def autenticar(cls, nombre, password, email=None ):
         conexion = config_db.conexion
         cursor = conexion.cursor(dictionary=True)
-        consulta = "SELECT * FROM {cls.tabla} WHERE nombre = %s AND password = %s"
+        consulta = f"SELECT * FROM {cls.tabla} WHERE nombre = %s AND password = %s"
         cursor.execute(consulta, (nombre, password))
         usuario = cursor.fetchone()
         cursor.close()
-        return usuario
+        if usuario:
+            return cls(usuario['nombre'], usuario['email'], usuario['password'], id=usuario['id'])
+        return None

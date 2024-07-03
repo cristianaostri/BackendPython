@@ -1,0 +1,35 @@
+<!-- inicio.html -->
+{% extends './admin/base_admin.html' %}
+
+{% block title %}Inicio - Perfumería{% endblock %}
+
+{% block content %}
+
+{%if aviso%}
+    <h1>{{aviso}}</h1>
+
+    <div class="container">
+        <h1>Lista de Usuarios</h1>
+        <ul>
+            {% for usuario in usuarios %}
+            <li>
+                <div class="user-info">
+                    <span><strong>Nombre:</strong> {{ usuario.nombre }}</span>
+                    <span><strong>Email:</strong> {{ usuario.email }}</span>
+                    <span><strong>ID:</strong> {{ usuario.id }}</span>
+                </div>
+                <div class="btn-group">
+                    <form action="/modificar_usuario/{{ usuario.id }}" method="GET">
+                        <button type="submit" class="btn">Modificar</button>
+                    </form>
+                    <form action="/eliminar_usuario/{{ usuario.id }}" method="POST">
+                        <button type="submit" class="btn">Eliminar</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+{% endblock %}

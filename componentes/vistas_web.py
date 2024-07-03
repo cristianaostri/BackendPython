@@ -3,8 +3,7 @@ import requests
 
 from main import app
 from componentes.modelos import Usuarios
-
-
+from usuario import Usuarioss
 # ****** Inicio ******
 # @app.route('/')
 # def inicio():
@@ -63,14 +62,17 @@ def login():
         usuario = Usuarios(username, password)
         print(type(usuario))
         print(usuario)
-        if usuario:
+        usuarios = Usuarioss.autenticar(username,password)
+        if usuarios:
             aviso = f"Bienvenido {usuario.nombre}"
+            usuarios = obtener_usuarios_desde_api()
             
-            return render_template('inicio.html', aviso=aviso)
+            return render_template('./admin/admin.html', aviso=aviso, usuarios=usuarios, usuario=usuario)
             
             # return redirect(url_for('inicio'))  # Redirigir a la página de inicio
         else:
             # Autenticación fallida
+            print("pasó por acá")
             error = 'Credenciales inválidas. Por favor, inténtalo de nuevo.'
             return render_template('/inicio_sesion/sesion.html', error=error)
     else:
@@ -82,21 +84,34 @@ def ventas():
     return render_template('/productos/productos.html') 
 
 
-# @app.route('/sobre_la_tienda')
-# def sobre_la_tienda():
-#     return render_template('sobre_la_tienda.html')
+# Ruta para modificar un usuario (GET para obtener el formulario de modificación)
+@app.route('/modificar_usuario/<int:usuario_id>', methods=['GET'])
+def mostrar_formulario_modificar(usuario_id):
+    usuario = Usuarioss.obtener_usuario(usuario_id)
+    print(usuario)
+    return render_template('formulario_modificar_usuario.html', usuario=usuario)
 
-# @app.route('/contacto')
-# def contacto():
-#     return render_template('contacto.html')
+# Ruta para procesar la modificación de un usuario (POST para actualizar en la base de datos)
+@app.route('/modificar_usuario/<int:usuario_id>', methods=['POST'])
+def modificar_usuario(usuario_id):
+    # Obtener datos del formulario de modificación
+    nombre = request.form['nombre']
+    email = request.form['email']
+    password = request.form['password']
 
-# @app.route('/sign_in')
-# def sign_in():
-#     return render_template('sign_in.html')
+def obtener_usuarios_desde_api():
+    # URL de la API donde se obtienen los usuarios
+    api_url = 'http://localhost:5000/perfumeria/usuarios'
 
-# @app.route('/sign_up')
-# def sign_up():
-#     return render_template('sign_up.html')
+    # Realizar la solicitud GET a la API
+    response = requests.get(api_url)
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+    # Verificar si la solicitud fue exitosa (código 200)
+    if response.status_code == 200:
+        usuarios = response.json()  # Convertir la respuesta JSON en un diccionario de Python
+        return usuarios
+    else:
+        return f'Error al obtener usuarios desde la API. Código de estado: {response.status_code}'
+    
+    
+    

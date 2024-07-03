@@ -1,0 +1,32 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Sitio Web{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/admin.css') }}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body>
+    <!-- Contenedor para el navbar -->
+    <header id="navbarContainer">
+        {% include 'home/navbar.html' %}
+    </header>
+
+    <!-- Contenido específico de cada página -->
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    
+    <!-- Contenedor para el footer -->
+    <div id="footerContainer">
+        {% include 'home/footer.html' %}
+    </div>
+
+    <!-- Scripts JavaScript -->
+    
+</body>
+</html>
