@@ -11,7 +11,7 @@ config_dev = {
 config_prod = {
     # configuración en producción (despliegue)
     "user": 'cial610',
-    'password': '',
+    'password': 'Cristi@n12',
     'host': 'cial610.mysql.pythonanywhere-services.com',
     'database': 'cial610$perfumeria'
 }
