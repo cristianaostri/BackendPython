@@ -95,9 +95,29 @@ def mostrar_formulario_modificar(usuario_id):
 @app.route('/modificar_usuario/<int:usuario_id>', methods=['POST'])
 def modificar_usuario(usuario_id):
     # Obtener datos del formulario de modificación
+    print("*********  ***************  **************")
+    
     nombre = request.form['nombre']
     email = request.form['email']
     password = request.form['password']
+    usuario = Usuarioss.obtener_usuario(usuario_id)
+    print(f"nombre: {nombre}, email: {email} password: {password}")
+    
+    # Usuarios.actualizar(usuario_id, nombre, email, password)
+    usuario.modificar(nombre=nombre, email=email, password=password)
+    
+    return redirect(url_for('login'))  
+
+
+@app.route('/eliminar/<int:usuario_id>', methods=['POST'])
+def eliminar_usuario(usuario_id):
+    usuario = Usuarioss.obtener_usuario(usuario_id)
+    print(usuario.id)
+    print("*"*20)
+    print(usuario)
+    usuario.eliminar()
+    return redirect(url_for('inicio'))  
+
 
 def obtener_usuarios_desde_api():
     # URL de la API donde se obtienen los usuarios

@@ -19,19 +19,35 @@ class Usuarioss:
         self.conexion.commit()
         cursor.close()
 
-    def modificar(self, **kwargs):
+    def modificar(self, nombre=None, email=None, password=None):
         # Actualizar solo los campos que se pasan como argumentos de palabras clave
-        for campo, valor in kwargs.items():
-            if campo in self.campos:
-                setattr(self, campo, valor)
+        if nombre:
+            self.nombre = nombre
+        if email:
+            self.email = email
+        if password:
+            self.password = password
         
         cursor = self.conexion.cursor()
-        consulta = f"UPDATE {self.tabla} SET nombre = %s, password = %s WHERE id = %s;"
-        datos = (self.nombre,  self.password, self.id)
+        consulta = f"UPDATE {self.tabla} SET nombre = %s, email = %s, password = %s WHERE id = %s;"
+        datos = (self.nombre, self.email, self.password, self.id)
         cursor.execute(consulta, datos)
         self.conexion.commit()
         cursor.close()
-    
+
+    # def modificar(self, **kwargs):
+    #     # Actualizar solo los campos que se pasan como argumentos de palabras clave
+    #     for campo, valor in kwargs.items():
+    #         if campo in self.campos:
+    #             setattr(self, campo, valor)
+        
+    #     cursor = self.conexion.cursor()
+    #     consulta = f"UPDATE {self.tabla} SET nombre = %s,  email = %s, password = %s WHERE id = %s;"
+    #     datos = (self.nombre, self.email, self.password, self.id)
+    #     cursor.execute(consulta, datos)
+    #     self.conexion.commit()
+    #     cursor.close()
+        
     def eliminar(self):
         cursor = self.conexion.cursor()
         consulta = f"DELETE FROM {self.tabla} WHERE id = %s;"
@@ -79,3 +95,23 @@ class Usuarioss:
         if usuario:
             return cls(usuario['nombre'], usuario['email'], usuario['password'], id=usuario['id'])
         return None
+    @classmethod
+    def actualizar(cls, nombre=None, email=None, password=None):
+        # usuario = cls.obtener_usuario()
+        # if usuario:    
+        if nombre is not None:
+            cls.nombre = nombre
+        if email is not None:
+            cls.email = email
+        if password is not None:
+            cls.password = password
+        # else:
+    
+            raise ValueError("El objeto Usuarios no tiene un ID válido.")
+        
+        cursor = cls.conexion.cursor()
+        consulta = f"UPDATE {cls.tabla} SET nombre = %s, email = %s, password = %s WHERE id = %s;"
+        datos = (cls.nombre, cls.email, cls.password, cls.id)
+        cursor.execute(consulta, datos)
+        cls.conexion.commit()
+        cursor.close()
