@@ -7,7 +7,7 @@
     <title>{% block title %}Mi Sitio Web{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/contacto/Estilo-Contacto.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   
+    
 </head>
 <body>
     <!-- Contenedor para el navbar -->
@@ -16,46 +16,16 @@
     </header>
 
     <!-- Contenido específico de cada página -->
-    <div class="contenedor-sections">
-        <section class="contenido1">
-            <div class="Horarios">
-                <h2>Nuestros horarios</h2>
-                <p>Nos complace atenderlos los dias y horarios.</p>
-                <br>
-                <strong>Lunes - Viernes: </strong> 8am - 6pm
-                <br>
-                <strong>Sábado</strong><strong>: </strong>8am - 12:30pm
-                <br>
-                <strong>Domingo</strong><strong>:</strong> Cerrado</p>
-            </div> 
-            </section>
-            
-            <section class="contenido2">
-                <div class="contenido_lectura">
-                    <h2>Contáctanos</h2>
-                    <p><strong>Dirección:</strong><br>
-                        Calle Falsa, 123. </p>
-                        <p><strong>Teléfono:</strong><br>
-                            46357723</p>
-                            <p><strong>Email:</strong><br>
-                                omegaperfumes@gmail.com<br>
-                                &nbsp;</p>
-                            </div>
-                        </section>
-                    </div>
-            <br>
-            <div class="gallery">           
-                <img src="../../img/contacto/img1.png" alt="foto ilustrativa"> <!-- Corregido el formato de id -->
-                <img src="../../img/contacto/img2.png" alt="foto ilustrativa"> <!-- Corregido el formato de id -->
-            </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
     
     <!-- Contenedor para el footer -->
     <div id="footerContainer">
         {% include 'home/footer.html' %}
     </div>
 
-    
+    <!-- Scripts JavaScript -->
     
 </body>
 </html>
-

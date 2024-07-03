@@ -69,11 +69,11 @@ class Usuarios:
 
 
     @classmethod
-    def autenticar(cls,username, password):
+    def autenticar(cls,nombre, password):
         conexion = config_db.conexion
         cursor = conexion.cursor(dictionary=True)
-        consulta = "SELECT * FROM {cls.tabla} WHERE username = %s AND password = %s"
-        cursor.execute(consulta, (username, password))
+        consulta = "SELECT * FROM {cls.tabla} WHERE nombre = %s AND password = %s"
+        cursor.execute(consulta, (nombre, password))
         usuario = cursor.fetchone()
         cursor.close()
         return usuario

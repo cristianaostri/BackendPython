@@ -1,6 +1,6 @@
 <!-- registro.html -->
 
-{% extends './inicio_sesion/base_sesion.html' %} 
+{% extends './inicio_sesion/base_sesion.html' %}
 
 {% block title %}Formulario de Registro - Perfumería{% endblock %}
 
@@ -9,28 +9,18 @@
     <img src="{{ url_for('static', filename='img/home/logo.jpeg') }}" alt="foto logo" class="avatar">
 
     <h1>Login here</h1>
-    <form  action="{{ url_for('home/inicio.html') }}" method="POST >
+    <form action="{{ url_for('cargando_datos') }}" method="POST" >
       <label for="username">Username</label>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        placeholder="Enter Username"
-      />
+        <input type="text" id="username" name="username" placeholder="Enter Username" />
 
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Enter Password"
-      />
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter Password" />
 
-      <input type="submit" value="Log In" />
+        <input type="submit" value="Log In" />
 
-      <a href="#">Lost your password</a>
-      <a href="#">Don’t have an account</a>
+        <a href="#">Lost your password</a>
+        <a href="#">Don t have an account</a>
     </form>
-  </div>
+</div>
 
 {% endblock %}
