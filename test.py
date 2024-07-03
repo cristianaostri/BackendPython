@@ -1,7 +1,7 @@
 # test1.py
 from usuario import Usuarios
 # Insertar un nuevo usuario
-nuevo_usuario = Usuarios('John Doe', 'john.doe@example.com', 'remolacha', )
+nuevo_usuario = Usuarios('cris', 'prueba_deb@gmail.com', 'prueba123' )
 print(nuevo_usuario)
 nuevo_usuario.guardar_db()
 # print(nuevo_usuario)

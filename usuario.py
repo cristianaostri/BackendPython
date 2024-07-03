@@ -9,7 +9,7 @@ class Usuarios:
         self.nombre = nombre
         self.email = email
         self.password = password
-        self.conexion = config_db.conexion()
+        self.conexion = config_db.conexion
 
     def guardar_db(self):
         cursor = self.conexion.cursor()

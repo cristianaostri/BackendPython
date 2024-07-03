@@ -33,15 +33,15 @@ def cargando_datos():
     if request.method == 'POST':
         nombre = request.form['first-name']
         email = request.form['email']
-        contraseña = request.form['new-password']
-
+        password = request.form['new-password']
+        print(nombre, email, password)
         # Guardar el usuario en la base de datos
-        nuevo_usuario = Usuarios(nombre, email, contraseña)
+        nuevo_usuario = Usuarios(nombre, email, password)
         print(nuevo_usuario)
         nuevo_usuario.guardar_db()
 
         # Redirigir a la página de inicio después del registro exitoso
-        return redirect(url_for(inicio))  
+        return redirect(url_for('inicio'))  
     else:
         return render_template('/formulario/formulario.html')
 
@@ -59,12 +59,16 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-
+        
         usuario = Usuarios(username, password)
-        usuario
+        print(type(usuario))
+        print(usuario)
         if usuario:
+            aviso = f"Bienvenido {usuario.nombre}"
             
-            return redirect(url_for(inicio))  # Redirigir a la página de inicio
+            return render_template('inicio.html', aviso=aviso)
+            
+            # return redirect(url_for('inicio'))  # Redirigir a la página de inicio
         else:
             # Autenticación fallida
             error = 'Credenciales inválidas. Por favor, inténtalo de nuevo.'
