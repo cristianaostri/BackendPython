@@ -12,3 +12,5 @@ cors = CORS(app, resources={r"/perfumeria/*": {"origins": "*"}})
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+app.secret_key = 'cristian12'

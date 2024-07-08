@@ -12,7 +12,11 @@ class Usuarioss:
         self.conexion = config_db.conexion
 
     def guardar_db(self):
-        cursor = self.conexion.cursor()
+        try:
+            cursor = self.conexion.cursor()
+        except Exception:
+            self.conexion.connect()
+            cursor = self.conexion.cursor()
         consulta = f"INSERT INTO {self.tabla} ({', '.join(self.campos)}) VALUES (%s, %s, %s);"
         datos = (self.nombre, self.email, self.password)
         cursor.execute(consulta, datos)
@@ -115,3 +119,5 @@ class Usuarioss:
         cursor.execute(consulta, datos)
         cls.conexion.commit()
         cursor.close()
+        
+        

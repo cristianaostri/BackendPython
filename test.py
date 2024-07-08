@@ -1,7 +1,8 @@
 # test1.py
-from usuario import Usuarios
+from usuario import Usuarioss
+
 # Insertar un nuevo usuario
-nuevo_usuario = Usuarios('cris', 'prueba_deb@gmail.com', 'prueba123' )
+nuevo_usuario = Usuarioss('cris', 'prueba_deb@gmail.com', 'prueba123' )
 print(nuevo_usuario)
 nuevo_usuario.guardar_db()
 # print(nuevo_usuario)
@@ -18,10 +19,12 @@ nuevo_usuario.guardar_db()
 #     usuario_a_eliminar.eliminar()
 
 # # Obtener todos los usuarios
-todos_los_usuarios = Usuarios.obtener_todos()  # Llamada al método con paréntesis
+todos_los_usuarios = Usuarioss.obtener_todos()  # Llamada al método con paréntesis
 for usuario in todos_los_usuarios:
     print(usuario.__dict__)
 
-todos_los_usuarios = Usuarios.obtener_todos()  # Llamada al método con paréntesis
+todos_los_usuarios = Usuarioss.obtener_todos()  # Llamada al método con paréntesis
 for usuario in todos_los_usuarios:
     print(usuario.__dict__)
+
+

@@ -23,51 +23,52 @@
                 <option value="hogar">Hogar</option>
             </select>
         </div>
-
+        
         <div class="producto-container">
             <!-- Producto 1 -->
             <div class="producto" data-name="Ambientadores para Salón" data-descripcion-producto="Perfume Ambientadores para Salón.." data-tipo="hogar">
-                <img src="../../img/producto/Ambientadores-para-Salón.jpg" alt="Ambientadores para Salón" />
+                <img src="{{ url_for('static', filename='img/producto/Ambientadores-para-Salón.jpg') }}"  alt="Ambientadores para Salón" />
                 <h3 class="titulo-producto">Ambientadores para Salón</h3>
                 <p class="producto-precio">399,00 ARS</p>
             </div>
             <!-- Producto 2 -->
             <div class="producto" data-name="Aromatizante en Aerosol Saphirus - Bebe" data-descripcion-producto="Aromatizante en Aerosol Saphirus - Bebe" data-tipo="hogar">
-                <img src="../../img/producto/Aromatizante-en-Aerosol-Saphirus-Bebe.jpg" alt="Aromatizante en Aerosol Saphirus - Bebe" />
+                <img src="{{ url_for('static', filename='img/producto/Aromatizante-en-Aerosol-Saphirus-Bebe.jpg') }}"  alt="Aromatizante en Aerosol Saphirus - Bebe" />
                 <h3 class="titulo-producto">Aromatizante en Aerosol Saphirus - Bebe</h3>
                 <p class="producto-precio">399,00 ARS</p>
             </div>
             <!-- Producto 3 -->
             <div class="producto" data-name="Home Spray Clean Cotton" data-descripcion-producto="Home Spray Clean Cotton" data-tipo="hogar">
-                <img src="../../img/producto/Home-Spray-Clean-Cotton.jpg" alt="Home Spray Clean Cotton" />
+                <img src="{{ url_for('static', filename='img/producto/Home-Spray-Clean-Cotton.jpg') }}"  alt="Home Spray Clean Cotton" />
                 <h3 class="titulo-producto">Home Spray Clean Cotton</h3>
                 <p class="producto-precio">399,00 ARS</p>
             </div>
             <!-- Producto 4 -->
             <div class="producto" data-name="Pack Colección Pop Bubble Gum" data-descripcion-producto="Pack Colección Pop Bubble Gum" data-tipo="mujer">
-                <img src="../../img/producto/Pack-Colección-Pop-Bubble-Gum.jpg" alt="Pack Colección Pop Bubble Gum" />
+                <img src="{{ url_for('static', filename='img/producto/Velentino-Perfume.jpg') }}"  alt="Pack Colección Pop Bubble Gum" />
                 <h3 class="titulo-producto">Pack Colección Pop Bubble Gum</h3>
                 <p class="producto-precio">399,00 ARS</p>
             </div>
             <!-- Producto 5 -->
             <div class="producto" data-name="Pack Regalo Pop Bubble Gum" data-descripcion-producto="Pack Regalo Pop Bubble Gum" data-tipo="mujer">
-                <img src="../../img/producto/Pack-Regalo-Pop-Bubble-Gum.jpg" alt="Pack Regalo Pop Bubble Gum" />
+                <img src="{{ url_for('static', filename='img/producto/Pack-Colección-Pop-Bubble-Gum.jpg') }}" alt="Pack Regalo Pop Bubble Gum" />
                 <h3 class="titulo-producto">Pack Regalo Pop Bubble Gum</h3>
                 <p class="producto-precio">399,00 ARS</p>
             </div>
             <!-- Producto 6 -->
             <div class="producto" data-name="Perfume Hogar y Telas Caramel" data-descripcion-producto="Perfume Hogar y Telas Caramel" data-tipo="hombre">
-                <img src="../../img/producto/perfume-hogar-y-telas-caramel.jpg" alt="Perfume Hogar y Telas Caramel" />
+                <img src="{{ url_for('static', filename='img/producto/Pack-Regalo-Pop-Bubble-Gum.jpg') }}"  alt="Perfume Hogar y Telas Caramel" />
                 <h3 class="titulo-producto">Perfume Hogar y Telas Caramel</h3>
                 <p class="producto-precio">399,00 ARS</p>
             </div>
             <!-- Producto 7 -->
             <div class="producto" data-name="Velentino Perfume" data-descripcion-producto="Velentino Perfume" data-tipo="hombre">
-                <img src="../../img/producto/Velentino-Perfume.jpg" alt="Velentino Perfume" />
+                <img src="{{ url_for('static', filename='img/producto/perfume-hogar-y-telas-caramel.jpg') }}"  alt="Velentino Perfume" />
                 <h3 class="titulo-producto">Velentino Perfume</h3>
                 <p class="producto-precio">399,00 ARS</p>
             </div>
         </div>
+        
     </section>
 </main>
 <div id="modal" class="modal">

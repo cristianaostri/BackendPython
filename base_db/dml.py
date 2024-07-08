@@ -8,6 +8,12 @@ class Tabla:
         self.campos = n_campos
         self.conexion = n_conexion
     
+    @classmethod
+    def __conectar(cls, consulta, parametros):
+        cursor = cls.conexion.cursor()
+        cursor.execute(consulta, parametros)
+        return cursor.fetchone()
+    
     # *** CRUD ***
     # Creador/"Constructor" de instancias de subclase
     def crear(self, valores, de_bbdd=False):
@@ -63,7 +69,7 @@ class Tabla:
             return 'Eliminación exitosa.'
             
         return 'No se pudo eliminar el registro.'
-    
+    @classmethod
     def modificar(cls, registro):
         update_q =f"UPDATE {cls.tabla} "
         set_q = "SET"
