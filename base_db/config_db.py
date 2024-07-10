@@ -16,4 +16,13 @@ config_prod = {
     'database': 'cial610$perfumeria'
 }
 
-conexion = mysql.connector.connect(**config_prod)
+def create_connection():
+    try:
+        conexion = mysql.connector.connect(**config_prod)
+        if conexion.is_connected():
+            return conexion
+    except Error as e:
+        print("Error en la conexión a la base de datos:", e)
+        return None
+
+conexion = create_connection()

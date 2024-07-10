@@ -5,20 +5,20 @@ from base_db.config_db import conexion as con
 from auxiliares.cifrado import encriptar
 
 class Productos(Tabla):
-    
+
     tabla = 'productos'
     campos = ('id', 'nombre', 'precio_venta', 'tipo', 'imagen_url')
     conexion = con
-    
+
     def __init__(self, *args, de_bbdd=False):
         super().crear(args, de_bbdd)
-        
+
 class Usuarios(Tabla):
-    
+
     tabla = 'usuarios'
     campos = ('id','nombre', 'email', 'password')
     conexion = con
-    
+
     def __init__(self, *args, de_bbdd=False):
         if not de_bbdd:
             cuenta = []
@@ -27,22 +27,22 @@ class Usuarios(Tabla):
             super().crear(tuple(cuenta), de_bbdd)
         else:
             super().crear(args, de_bbdd)
-    
+
     @classmethod
     def obtener_por_email(cls, email):
         try:
             consulta = f"SELECT * FROM {cls.tabla} WHERE email = %s;"
             resultado = cls.__conectar(consulta, (email,))
-            
+
             if resultado:
                 return cls(*resultado, de_bbdd=True)
             else:
                 return None
-    
+
         except Exception as e:
             print(f"Error al obtener usuario por email: {e}")
             return None
-        
+
     @classmethod
     def __conectar(cls, consulta, parametros=None):
         cursor = cls.conexion.cursor()
@@ -62,7 +62,7 @@ class Usuarios(Tabla):
                 return None
         except Exception as e:
             resultado = cls.__conectar(consulta, parametros)
-            
+
     @classmethod
     def autenticar(cls, nombre):
         try:
@@ -76,8 +76,8 @@ class Usuarios(Tabla):
                 return cls(datos['nombre'])
             return None
         except Exception as e:
-            cursor.execute(consulta, (nombre,))
-            
+            cursor.execute(consulta, (nombre,)) # Cierra la conexión
+
     @classmethod
     def obtener_usuario(cls, id):
         print(f"El Id traido es: {id}")
@@ -91,7 +91,7 @@ class Usuarios(Tabla):
                 return None
         except Exception as e:
             resultado = cls.__conectar(consulta, parametros)
-            
+
     @classmethod
     def modificar_por_id(cls, id, nombre, email, password):
         consulta = f"UPDATE {cls.tabla} SET nombre = %s, email = %s, password = %s WHERE id = %s;"
@@ -106,14 +106,14 @@ class Usuarios(Tabla):
             cursor = cls.conexion.cursor()
             print(f"Error al modificar usuario: {e}")
             return False
-    
+
 class Imagenes(Tabla):
     tabla = 'imagenes'
     campos = ('id','url_img', 'texto_alt')
     conexion = con
-    
+
     def __init__(self, *args, de_bbdd=False):
-        
+
         if not de_bbdd:
             cuenta = []
             cuenta.append(args[0])

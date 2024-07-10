@@ -8,7 +8,7 @@ from componentes.modelos import Productos
 from componentes.modelos import Imagenes
 from componentes.modelos import Usuarios
 
-@app.route('/perfumeria/productos')
+@app.route('/perfumeria/api_productos')
 def mostrar_productos():
     productos =  Productos.obtener()
     dicc_productos = [p.__dict__ for p in productos]

@@ -5,7 +5,7 @@ app = Flask(__name__)
 from componentes.vistas_api import *
 from componentes.vistas_web import *
 
-app.json.ensure_ascii = False
+app.config['JSON_AS_ASCII'] = False
 
 # Configuración de CORS (si es necesario)
 cors = CORS(app, resources={r"/perfumeria/*": {"origins": "*"}})

@@ -1,17 +1,19 @@
 from flask import flash, redirect, render_template, request, url_for
 import requests
 from main import app
-from componentes.modelos import Usuarios, Productos
+from componentes.modelos import Usuarios
 
 # Ruta principal, muestra imágenes de la perfumería
 @app.route('/')
 def inicio():
     try:
+        # Usa la URL pública de tu API
         response = requests.get('http://localhost:5000/perfumeria/imagenes')
         if response.status_code == 200:
             imagenes = response.json()
             return render_template('inicio.html', imagenes=imagenes)
         else:
+            print(f"Error: Recibido código de estado {response.status_code}")
             return render_template('inicio.html', imagenes=[])
     except requests.exceptions.RequestException as e:
         print(f"Error al hacer la solicitud a la API: {e}")
@@ -24,23 +26,23 @@ def cargando_datos():
         nombre = request.form['first-name']
         email = request.form['email']
         password = request.form['new-password']
-        
+
         nuevo_usuario = Usuarios(nombre, email, password)
         nuevo_usuario.guardar_db()
-        
+
         return redirect(url_for('inicio'))  # Redirigir a la página de inicio después del registro exitoso
     else:
         return render_template('/formulario/formulario.html')
 @app.route('/perfumeria/contacto')
 def tienda():
-        return render_template('/sobre_tienda/tienda.html') 
+        return render_template('/sobre_tienda/tienda.html')
 
-    
+
 
 
 @app.route('/perfumeria/infotienda')
 def contacto():
-    return render_template('/contacto/contacto.html') 
+    return render_template('/contacto/contacto.html')
 
 # Ruta para autenticar y hacer login de usuarios
 @app.route('/perfumeria/login', methods=['GET', 'POST'])
@@ -48,13 +50,13 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        
-        
+
+
         # No es necesario convertir a diccionario
         usuario = Usuarios(username, None, password)  # Opcionalmente, pasas None o un valor para email
-        
+
         print(usuario.nombre)
-        
+
         # Obtener usuario por nombre y validar la contraseña
         usuario_completo = Usuarios.autenticar(usuario.nombre)
         print(usuario_completo)
@@ -71,8 +73,8 @@ def login():
 
 @app.route('/perfumeria/productos', methods=['GET', 'POST'])
 def ventas():
-    
-    return render_template('/productos/productos.html') 
+
+    return render_template('/productos/productos.html')
 
 
 # # Ruta para mostrar todos los productos disponibles
@@ -110,18 +112,18 @@ def modificar_usuario(usuario_id):
     nombre = request.form.get('nombre')
     email = request.form.get('email')
     password = request.form.get('password')
-    
+
     # Validar que todos los campos necesarios estén presentes
     if not (nombre and email and password):
         flash('Por favor, complete todos los campos para modificar el usuario.', 'error')
         return redirect(url_for('modificar_usuario'))  # Redirigir a la página de formulario de modificación
-    
+
     # Modificar el usuario en la base de datos
     if Usuarios.modificar_por_id(usuario_id, nombre, email, password):
         flash('Usuario modificado exitosamente.', 'success')
     else:
         flash(f'Error al modificar usuario.', 'error')
-    
+
     return redirect(url_for('login', usuario_id=usuario_id))  # Redirigir a la página de formulario de modificación
 
 # Ruta para eliminar un usuario
