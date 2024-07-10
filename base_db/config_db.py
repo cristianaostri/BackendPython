@@ -16,4 +16,4 @@ config_prod = {
     'database': 'cial610$perfumeria'
 }
 
-conexion = mysql.connector.connect(**config_dev)
+conexion = mysql.connector.connect(**config_prod)
