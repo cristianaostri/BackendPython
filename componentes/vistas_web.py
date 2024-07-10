@@ -33,12 +33,14 @@ def cargando_datos():
         return render_template('/formulario/formulario.html')
 @app.route('/perfumeria/contacto')
 def tienda():
-    return render_template('/contacto/contacto.html') 
+        return render_template('/sobre_tienda/tienda.html') 
+
+    
 
 
 @app.route('/perfumeria/infotienda')
 def contacto():
-    return render_template('/sobre_tienda/tienda.html') 
+    return render_template('/contacto/contacto.html') 
 
 # Ruta para autenticar y hacer login de usuarios
 @app.route('/perfumeria/login', methods=['GET', 'POST'])

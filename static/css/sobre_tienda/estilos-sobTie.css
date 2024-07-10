@@ -37,6 +37,7 @@ body {
     padding: 20px;
     overflow: hidden;
     position: relative;
+    
 }
 
 .Img-Item {
@@ -48,6 +49,8 @@ body {
     overflow: hidden;
     border-radius: 20px;
     margin: 0 20px;
+    object-fit: cover;
+    
 }
 
 .Img-Item:hover {
